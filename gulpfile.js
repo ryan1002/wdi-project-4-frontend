@@ -144,7 +144,7 @@ gulp.task("watch", () => {
   livereload.listen();
   gulp.watch('./index.html', ['html']);
   gulp.watch(`${src}/**/*.html`, ['copy:views']);
-  gulp.watch(`${src}/**/*.js`, ['bower', 'scripts']);
+  gulp.watch(`${src}/**/*.js`, ['scripts']);
   gulp.watch(`${src}/**/*.scss`, ['sass']);
 });
 
