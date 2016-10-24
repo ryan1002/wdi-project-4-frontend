@@ -58471,4 +58471,56 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-"use strict";angular.module("PlumberApp",['mwl.calendar']).controller("MainController",MainController);function MainController(){var vm=this;vm.calendarView='month';vm.viewDate=new Date();vm.events=[{title:'First Event',startsAt:new Date(2016,9,24,8,30)},{title:'First Event',startsAt:new Date(2016,9,24,13,30)}];}
+"use strict";angular.module("PlumberApp",['mwl.calendar']);
+"use strict";
+"use strict";angular.module("PlumberApp").controller("MainController",MainController);MainController.$inject=['$http'];function MainController($http){// const vm = this;
+// vm.calendarView = 'month';
+// vm.viewDate = new Date();
+//
+// $http
+//   .get('http://localhost:3000/api/users/1')
+//   .then(response => {
+//     vm.events = response.data.events.map((event) => {
+//       event.startsAt = new Date(event.startsAt);
+//       event.endsAt = new Date(event.endsAt);
+//       return event;
+//     });
+//   });
+//
+//
+//
+// vm.events = [
+//   {
+//     title: 'First Event',
+//     startsAt: new Date(2016,9,24,8,30)
+//   },
+//   {
+//     title: 'First Event',
+//     startsAt: new Date(2016,9,24,13,30),
+//   }
+// ];
+}
+// angular
+//   .module("PlumberApp", ['ngResource'])
+//   .controller("registerCtrl", registerCtrl);
+//
+//   registerCtrl.$inject = ["User", "ngResource"];
+//   function registerCtrl(User, ngResource){
+//     const vm = this;
+//     vm.register = () => {
+//       User
+//         .register({user: vm.user})
+//         .$promise
+//         .then(data => {
+//           const user = data.user ? data.user : null;
+//           if (user) {
+//             CurrentUserService.saveUser(user);
+//           }
+//         });
+//     };
+//   }
+//
+//   // angular
+//   //   .module("PlumberApp", ['mwl.calendar'])
+//   //   .controller("MainController", MainController);
+"use strict";
