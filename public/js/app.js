@@ -58471,9 +58471,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-"use strict";angular.module("PlumberApp",['mwl.calendar']);
-"use strict";
-"use strict";angular.module("PlumberApp").controller("MainController",MainController);MainController.$inject=['$http'];function MainController($http){// const vm = this;
+"use strict";angular.module("PlumberApp",['mwl.calendar',"ui.router","ngResource","angular-jwt"]);
+"use strict";angular.module("PlumberApp").constant("API",'http://localhost:3000/api');
+"use strict";angular.module("PlumberApp").factory("AuthInterceptor",AuthInterceptor);AuthInterceptor.$inject=["API","TokenService"];function AuthInterceptor(API,TokenService){return{request:function request(config){var token=TokenService.getToken();if(config.url.indexOf(API)===0&&token){config.headers.Authorization="Bearer "+token;}return config;},response:function response(res){if(res.config.url.indexOf(API)===0&&res.data.token){TokenService.setToken(res.data.token);}return res;}};}
+"use strict";angular.module("PlumberApp").service("CurrentUserService",CurrentUserService);CurrentUserService.$inject=["TokenService","$rootScope"];function CurrentUserService(TokenService,$rootScope){var currentUser=TokenService.decodeToken();return{user:currentUser,saveUser:function saveUser(user){user.id=user.id?user.id:user._id;currentUser=user;$rootScope.$broadcast("loggedIn");},getUser:function getUser(user){return currentUser;},clearUser:function clearUser(){currentUser=null;TokenService.clearToken();$rootScope.$broadcast("loggedOut");}};}
+"use strict";angular.module("PlumberApp").controller("usersIndexCtrl",usersIndexCtrl);usersIndexCtrl.$inject=['$http'];function usersIndexCtrl($http){var vm=this;vm.ryan="Ryan";}
+"use strict";angular.module("PlumberApp").config(setUpInterceptor);setUpInterceptor.$inject=["$httpProvider"];function setUpInterceptor($httpProvider){return $httpProvider.interceptors.push("AuthInterceptor");}
+"use strict";angular.module("PlumberApp").controller("loginCtrl",loginCtrl);loginCtrl.$inject=["User","CurrentUserService"];function loginCtrl(User,CurrentUserService){var vm=this;vm.login=function(){User.login(vm.user).$promise.then(function(data){var user=data.user||null;if(user){CurrentUserService.saveUser(user);}});};}
+"use strict";angular.module("PlumberApp").controller("MainController",MainController);MainController.$inject=['$http','CurrentUserService','$rootScope','$state'];function MainController($http,CurrentUserService,$rootScope,$state){var vm=this;vm.user=CurrentUserService.getUser();console.log("MainCTRL LOADED");$rootScope.$on("loggedIn",function(){vm.user=CurrentUserService.getUser();$state.go("usersIndex");});vm.logout=function(){event.preventDefault();CurrentUserService.clearUser();};$rootScope.$on("loggedOut",function(){vm.user=null;$state.go("home");});// const vm = this;
 // vm.calendarView = 'month';
 // vm.viewDate = new Date();
 //
@@ -58500,27 +58505,17 @@ return /******/ (function(modules) { // webpackBootstrap
 //   }
 // ];
 }
-// angular
-//   .module("PlumberApp", ['ngResource'])
-//   .controller("registerCtrl", registerCtrl);
-//
-//   registerCtrl.$inject = ["User", "ngResource"];
-//   function registerCtrl(User, ngResource){
-//     const vm = this;
-//     vm.register = () => {
-//       User
-//         .register({user: vm.user})
-//         .$promise
-//         .then(data => {
-//           const user = data.user ? data.user : null;
-//           if (user) {
-//             CurrentUserService.saveUser(user);
-//           }
-//         });
-//     };
-//   }
-//
-//   // angular
-//   //   .module("PlumberApp", ['mwl.calendar'])
-//   //   .controller("MainController", MainController);
-"use strict";
+"use strict";angular.module("PlumberApp").controller("registerCtrl",registerCtrl);registerCtrl.$inject=["User","CurrentUserService"];function registerCtrl(User,CurrentUserService){var vm=this;vm.register=function(){User.register(vm.user).$promise.then(function(data){var user=data.user?data.user:null;if(user){CurrentUserService.saveUser(user);}});};}
+"use strict";angular.module("PlumberApp").config(Router);Router.$inject=["$stateProvider","$urlRouterProvider","$locationProvider"];function Router($stateProvider,$urlRouterProvider,$locationProvider){$stateProvider.state("home",{url:"/",templateUrl:"/js/views/home.html"}).state("register",{url:"/register",templateUrl:"/js/views/register.html",controller:"registerCtrl as register"}).state("login",{url:"/login",templateUrl:"/js/views/login.html",controller:"loginCtrl as login"}).state("usersIndex",{url:"/users",templateUrl:"/js/views/users/index.html",controller:"usersIndexCtrl as usersIndex"})// .state('threadsShow', {
+// 	url: "/threads/:id",
+// 	templateUrl: "/js/views/views/show.html",
+//   controller: "ThreadsShowCtrl as threads"
+// })
+// .state('threadsEdit', {
+// 	url: "/threads/:id/edit",
+// 	templateUrl: "/js/views/views/edit.html",
+//   controller: "ThreadsEditCtrl as threads"
+// })
+;$urlRouterProvider.otherwise("/");}
+"use strict";angular.module("PlumberApp").service("TokenService",TokenService);TokenService.$inject=["$window","jwtHelper"];function TokenService($window,jwtHelper){var self=this;self.setToken=setToken;function setToken(token){return $window.localStorage.setItem("auth-token",token);}self.getToken=getToken;function getToken(){return $window.localStorage.getItem("auth-token");}self.decodeToken=decodeToken;function decodeToken(){var token=self.getToken();return token?jwtHelper.decodeToken(token):null;}self.clearToken=clearToken;function clearToken(){$window.localStorage.removeItem("auth-token");}}
+"use strict";angular.module("PlumberApp").factory("User",userFactory);userFactory.$inject=["API","$resource"];function userFactory(API,$resource){return $resource(API+"/users/:id",{id:"@_id"},{'query':{method:"GET",isArray:true},'register':{method:"POST",url:API+"/register"},'login':{method:"POST",url:API+"/login"}});}

@@ -1,9 +1,27 @@
 angular
-  .module("PlumberApp")
-  .controller("MainController", MainController);
+.module("PlumberApp")
+.controller("MainController", MainController);
 
-MainController.$inject = ['$http'];
-function MainController($http) {
+MainController.$inject = ['$http', 'CurrentUserService', '$rootScope', '$state'];
+function MainController($http, CurrentUserService, $rootScope, $state) {
+  const vm = this;
+  vm.user = CurrentUserService.getUser();
+  console.log("MainCTRL LOADED");
+  $rootScope.$on("loggedIn", () => {
+    vm.user = CurrentUserService.getUser();
+    $state.go("usersIndex");
+  });
+
+  vm.logout = () => {
+    event.preventDefault();
+    CurrentUserService.clearUser();
+  };
+
+  $rootScope.$on("loggedOut", () => {
+    vm.user = null;
+    $state.go("home");
+  });
+
   // const vm = this;
   // vm.calendarView = 'month';
   // vm.viewDate = new Date();
