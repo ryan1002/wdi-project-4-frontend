@@ -6,7 +6,7 @@ MainController.$inject = ['$http', 'CurrentUserService', '$rootScope', '$state']
 function MainController($http, CurrentUserService, $rootScope, $state) {
   const vm = this;
   vm.user = CurrentUserService.getUser();
-  console.log("MainCTRL LOADED");
+  
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
     $state.go("usersIndex");

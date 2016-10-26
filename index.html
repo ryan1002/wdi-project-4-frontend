@@ -19,15 +19,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ui-sref="#">Plumbers</a></li>
+          <a class="navbar-brand" ui-sref="home">Plumbers</a></li>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a class='nav-text' ui-sref="home">Home</a>
-            </li>
             <li ng-show="main.user">
               <a class='nav-text' ui-sref="usersShow({ id: main.user.id })">{{ main.user.username }}</a>
             </li>
@@ -38,7 +35,7 @@
               <a class='nav-text' ui-sref="login">Login</a>
             </li>
             <li ng-show="main.user">
-              <a class='nav-text' ui-sref="home">Home plumber page</a>
+              <a class='nav-text' ui-sref="usersIndex">Users</a>
             </li>
             <li ng-show="main.user">
               <a class='nav-text' href="#" ng-click="main.logout()">Logout</a>

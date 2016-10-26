@@ -2,8 +2,9 @@ angular
 .module("PlumberApp")
 .controller("usersIndexCtrl", usersIndexCtrl);
 
-usersIndexCtrl.$inject = ['$http'];
-function usersIndexCtrl($http) {
+usersIndexCtrl.$inject = ['User'];
+function usersIndexCtrl(User) {
   const vm = this;
-  vm.ryan = "Ryan";
+
+  vm.users = User.query();
 }

@@ -1,4 +1,13 @@
-<h1>Book a plumber</h1>
+<!-- <h1>Book a plumber</h1>
 <input type="text" placeholder="search for a plumber"/>enter you postcode
 We are logged in!
-Hooray {{usersIndex.ryan}}!
+Hooray {{usersIndex.ryan}}! -->
+
+<h1>Users Index</h1>
+<ul>
+  <li ng-repeat="user in usersIndex.users">
+    <ul>
+      <li><a ui-sref="usersShow({ id: user.id })">{{ user.username }}</a></li>
+    </ul>
+  </li>
+</ul>
