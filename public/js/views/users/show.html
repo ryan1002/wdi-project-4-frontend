@@ -1,3 +1,14 @@
 <h1>Users Show</h1>
 
 {{ usersShow.user }}
+
+<mwl-calendar
+events="usersShow.user.events"
+view="usersShow.calendarView"
+view-title="usersShow.calendarTitle"
+view-date="usersShow.viewDate"
+day-view-start="06:00"
+day-view-end="22:59"
+day-view-split="30"
+cell-auto-open-disabled="true"
+</mwl-calendar>
