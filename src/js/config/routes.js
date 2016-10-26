@@ -33,19 +33,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
       templateUrl: "/js/views/users/show.html",
       controller: "usersShowCtrl as usersShow",
     })
-
-      // .state('threadsShow', {
-  		// 	url: "/threads/:id",
-  		// 	templateUrl: "/js/views/views/show.html",
-      //   controller: "ThreadsShowCtrl as threads"
-  		// })
-      // .state('threadsEdit', {
-  		// 	url: "/threads/:id/edit",
-  		// 	templateUrl: "/js/views/views/edit.html",
-      //   controller: "ThreadsEditCtrl as threads"
-  		// })
-
-    ;
+    .state("eventsNew", {
+      url: "/users/:id/events/new",
+      templateUrl: "/js/views/events/new.html",
+      controller: "eventsNewCtrl as eventsNew",
+    });
 
     $urlRouterProvider.otherwise("/");
 }

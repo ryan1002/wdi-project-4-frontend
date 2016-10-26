@@ -1,9 +1,11 @@
-<h1>Users Show</h1>
+<h1>{{usersShow.user.username}}</h1>
 
-{{ usersShow.user }}
+{{ usersShow.user.events }}
+<br>
+<button ui-sref="eventsNew({ id: usersShow.user.id })" class="btn btn-success">Book this Plumber</button>
 
 <mwl-calendar
-events="usersShow.user.events"
+events="usersShow.events"
 view="usersShow.calendarView"
 view-title="usersShow.calendarTitle"
 view-date="usersShow.viewDate"
