@@ -1,109 +1,43 @@
-<div class="register-container">
+<section class="register">
   <form class="container"ng-submit="register.register()">
-  <h1>Register</h1>
-  <h2>Sign up to book a plumber</h2>
-    <div>
-      <label for="email">Username:</label>
-      <input type="text" name="username" ng-model="register.user.username" placeholder="Username" class="input-field">
+    <h1>Register</h1>
+    <div class="form-group">
+      <label for="email" class="fonts">Username:</label>
+      <input type="text" class="form-control" name="username" ng-model="register.user.username" class="input-field">
     </div>
-    <div>
-      <label for="email">Upload image:</label>
-      <input type="text" name="profilePicture" ng-model="register.user.profilePicture" placeholder="Image" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Upload image:</label>
+      <input type="text" class="form-control" name="profilePicture" ng-model="register.user.profilePicture" class="input-field">
     </div>
-    <div>
-      <label for="email">Bio:</label>
-      <input type="text" name="bio" ng-model="register.user.bio" placeholder="Bio" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Bio:</label>
+      <input type="text" class="form-control" name="bio" ng-model="register.user.bio" class="input-field">
     </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" name="email" ng-model="register.user.email" placeholder="Email" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Email:</label>
+      <input type="email" class="form-control" name="email" ng-model="register.user.email" class="input-field">
     </div>
-    <div>
-      <label for="email">Rate:</label>
-      <input type="number" name="rate" ng-model="register.user.rate" placeholder="Rate" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Rate:</label>
+      <input type="number" class="form-control" name="rate" ng-model="register.user.rate" class="input-field">
     </div>
-    <div>
-      <label for="email">Company Name:</label>
-      <input type="text" name="company_name" ng-model="register.user.company_name" placeholder="Company Name" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Company Name:</label>
+      <input type="text" class="form-control" name="company_name" ng-model="register.user.company_name" class="input-field">
     </div>
-    <div>
-      <label for="email">Borough:</label>
-      <input type="text" name="borough" ng-model="register.user.borough" placeholder="Borough" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Borough:</label>
+      <input type="text" class="form-control" name="borough" ng-model="register.user.borough" class="input-field">
     </div>
-    <div>
-      <label for="email">Password:</label>
-      <input type="password" name="password" ng-model="register.user.password" placeholder="Password" class="input-field">
+    <div class="form-group">
+      <label for="email"class="fonts">Password:</label>
+      <input type="password" class="form-control" name="password" ng-model="register.user.password" class="input-field">
     </div>
-    <div>
-      <label for="email">Confirm Password:</label>
-      <input type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation" class="input-field">
+    <div class="form-group">
+      <label for="email" class="fonts">Confirm Password:</label>
+      <input type="password" class="form-control" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" class="input-field">
     </div>
-    <input type="submit" value="Submit" />
+    <hr>
+    <input class="btn btn-success form-control" type="submit" value="Submit" />
   </form>
-</div>
-
-
-<!-- <div class="login-container">
-  <form class="container" ng-submit="login.login()">
-    <h1>Login</h1>
-    <br>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" name="email" ng-model="login.user.email" placeholder="Email" class="input-field">
-    </div>
-    <div>
-      <label for="pwd">Password:</label>
-      <input type="password" name="password" ng-model="login.user.password" placeholder="Password" class="input-field">
-    </div>
-    <div>
-      <label class="remember-checkbox"><input type="checkbox"> Remember me</label>
-    </div>
-    <input type="submit" value="Login">
-  </form>
-</div>
- -->
-
-
-
-
-<!-- <h1>Register</h1>
-<h2>Sign up to book a plumber</h2>
-<form ng-submit="register.register()">
-<div class="form-group" >
-<label for="email">Username:</label>
-<input class="form-control" type="text" name="username" ng-model="register.user.username" placeholder="Username" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Upload image:</label>
-<input class="form-control" type="text" name="profilePicture" ng-model="register.user.profilePicture" placeholder="Image" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Bio:</label>
-<input class="form-control" type="text" name="bio" ng-model="register.user.bio" placeholder="Bio" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Email:</label>
-<input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Rate:</label>
-<input class="form-control" type="number" name="rate" ng-model="register.user.rate" placeholder="Rate" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Company Name:</label>
-<input class="form-control" type="text" name="company_name" ng-model="register.user.company_name" placeholder="Company Name" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Borough:</label>
-<input class="form-control" type="text" name="borough" ng-model="register.user.borough" placeholder="Borough" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Password:</label>
-<input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password" class="input-field">
-</div>
-<div class="form-group">
-<label for="email">Confirm Password:</label>
-<input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation" class="input-field">
-</div>
-<input class="btn btn-primary" type="submit" value="Submit" />
-</form> -->
+</section>

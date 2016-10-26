@@ -1,82 +1,163 @@
 @import "bower";
 
+* {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 body {
   margin: 0 auto;
 }
 
-
-.navbar-default {
-  margin-bottom: 0 !important;
+h1 {
+  margin: 0;
+  padding: 0;
 }
 
-// body {
-//   font-family: 'Josefin Slab', serif;
-// }
-// // //
-// // // .form-control {
-// // //     width: 100%;
-// // //     height: 34px;
-// // //     padding: 6px 12px;
-// // //     background-color: #fff;
-// // //     border: 1px solid rgb(228, 228, 228);
-// // //     border-radius: 0px;
-// // // }
-// //
-// input.form-control .ng-pristine .ng-untouched .ng-valid .ng-empty .ng-valid-email {
-//   width: 100%;
-//   height: 34px;
-//   padding: 6px 12px;
-//   background-color: #fff;
-//   border: 1px solid red;
-//   border-radius: 0px;
-//   box-shadow: 0;
-// }
+.navbar {
+  margin-bottom: 0px;
+}
 
-// input[type=text], select {
-//     width: 60%;
-//     padding: 12px 20px;
-//     margin: 8px 0;
-//     display: inline-block;
-//     border: 1px solid #ccc;
-//     border-radius: 4px;
-//     box-sizing: border-box;
-// }
-
-.input-field {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 0px;
-  box-sizing: border-box;
-}
-input[type=submit] {
-  background-color: #45a049;
-  border: 0px;
-  border-radius: 0px;
-  width: 20%;
-  height: 40px;
-  color: #fff;
-  margin-top: 14px;
-  &:hover {
-    background-color: #4dc852;
-  }
-}
-.remember-checkbox {
-  margin-top: 8px;
-}
-body {
-  background: grey;
-}
-.login-container {
+section {
   width: 100%;
   height: 100vh;
-  background: #34515E;
 }
-.register-container {
+
+.shader {
   width: 100%;
-  height: 120vh;
-  background: #34515E;
+  height: 400px;
+  position: absolute;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
 }
-.
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+
+.register, .login {
+  background-color: #34515e;
+  color: #fff;
+}
+
+.homepage {
+  text-align: center;
+
+  .welcome {
+    color: #fff;
+    position: relative;
+    background: url(http://www.abbevilleplumbing.com/img/grosse-pointe-plumbing-company.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    height: 400px;
+
+    h1 {
+      font-size: 150px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h4 {
+      font-size: 40px;
+    }
+  }
+
+  .info {
+    margin-top: 25px;
+  }
+}
+
+form {
+  margin: 0px auto;
+  width: 600px !important;
+
+  h1 {
+    font-weight: 700;
+    font-size: 45px;
+  }
+
+  label {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  input {
+    margin-bottom: 5px;
+    border-radius: 0px !important;
+
+    .form-control {
+      display: block;
+      width: 100%;
+      height: 40px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+  }
+}
+
+// $register-txtColor: #f0f8ff;
+//
+// .navbar-default {
+//   margin-bottom: 0 !important;
+// }
+//
+// .input-field {
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 6px 0;
+//   display: inline-block;
+//   border: 1px solid #ccc;
+//   border-radius: 0px;
+//   box-sizing: border-box;
+// }
+// input[type=submit] {
+//   background-color: #45a049;
+//   border: 0px;
+//   border-radius: 0px;
+//   width: 15%;
+//   height: 50px;
+//   color: #fff;
+//   margin-top: 14px;
+//   &:hover {
+//     background-color: #4dc852;
+//   }
+// }
+// #remember-checkbox {
+//   margin-top: 8px;
+// }
+// .login-container {
+//   width: 100%;
+//   height: 100vh;
+//   background: #34515E;
+// }
+//
+// // .input-field ng-pristine ng-untouched ng-valid ng-empty ng-valid-email {
+// //   width: 60%;
+// //   height: 40px;
+// // }
+// .fonts {
+//   color: $register-txtColor;
+//   font-style: none;
+//   font-size: 15px;
+// }
+// .homepage {
+//   margin: 0 auto;
+// }
