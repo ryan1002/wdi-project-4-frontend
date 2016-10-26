@@ -6,6 +6,8 @@ Router.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider"];
 
 function Router($stateProvider, $urlRouterProvider, $locationProvider){
 
+  $locationProvider.html5Mode(true);
+
   $stateProvider
     .state("home", {
       url: "/",
@@ -26,6 +28,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
       templateUrl: "/js/views/users/index.html",
       controller: "usersIndexCtrl as usersIndex",
     })
+    .state("usersShow", {
+      url: "/users/:id",
+      templateUrl: "/js/views/users/show.html",
+      controller: "usersShowCtrl as usersShow",
+    })
+
       // .state('threadsShow', {
   		// 	url: "/threads/:id",
   		// 	templateUrl: "/js/views/views/show.html",
