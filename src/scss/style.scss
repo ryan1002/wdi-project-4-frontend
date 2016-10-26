@@ -1,5 +1,13 @@
 @import "bower";
 
+body {
+  margin: 0 auto;
+}
+
+
+.navbar-default {
+  margin-bottom: 0 !important;
+}
 
 // body {
 //   font-family: 'Josefin Slab', serif;
@@ -33,6 +41,7 @@
 //     border-radius: 4px;
 //     box-sizing: border-box;
 // }
+
 .input-field {
   width: 100%;
   padding: 12px 20px;
@@ -54,3 +63,20 @@ input[type=submit] {
     background-color: #4dc852;
   }
 }
+.remember-checkbox {
+  margin-top: 8px;
+}
+body {
+  background: grey;
+}
+.login-container {
+  width: 100%;
+  height: 100vh;
+  background: #34515E;
+}
+.register-container {
+  width: 100%;
+  height: 120vh;
+  background: #34515E;
+}
+.

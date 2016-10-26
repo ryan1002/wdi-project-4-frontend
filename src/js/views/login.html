@@ -1,19 +1,21 @@
-<h1>Login</h1>
-<form ng-submit="login.login()">
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" name="email" ng-model="login.user.email" placeholder="Email" class="input-field">
-  </div>
-  <div>
-    <label for="pwd">Password:</label>
-    <input type="password" name="password" ng-model="login.user.password" placeholder="Password" class="input-field">
-  </div>
-  <div>
-   <label><input type="checkbox"> Remember me</label>
- </div>
-  <input type="submit" value="Login">
-</form>
-
+<div class="login-container">
+  <form class="container" ng-submit="login.login()">
+    <h1>Login</h1>
+    <br>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" name="email" ng-model="login.user.email" placeholder="Email" class="input-field">
+    </div>
+    <div>
+      <label for="pwd">Password:</label>
+      <input type="password" name="password" ng-model="login.user.password" placeholder="Password" class="input-field">
+    </div>
+    <div>
+      <label class="remember-checkbox"><input type="checkbox"> Remember me</label>
+    </div>
+    <input type="submit" value="Login">
+  </form>
+</div>
 <!-- <h1>Login</h1>
 <form ng-submit="login.login()">
   <div class="form-group">
