@@ -128,13 +128,13 @@ button.btn.btn-primary {
 #content {
   // background-color: #fbfaf8;
 }
-footer {
-  width: 100%;
-  display: block;
-  // z-index: 3;
-  border: 1px solid green;
-  height: 30px;
-}
+// footer {
+//   width: 100%;
+//   display: block;
+//   // z-index: 3;
+//   border: 1px solid green;
+//   height: 30px;
+// }
 #wrench-icon {
   background: url("../images/wrench.png") no-repeat;
 }
@@ -143,4 +143,12 @@ footer {
 }
 #tap-icon {
   background: url("../images/tap.png") no-repeat;
+}
+.site-footer, .page-wrap:after {
+  height: 142px;
+  border: 1px solid green;
+}
+.site-footer {
+  background: #332a2a;
+  color: white;
 }
