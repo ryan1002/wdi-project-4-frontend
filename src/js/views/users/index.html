@@ -1,8 +1,8 @@
-<h1>Users Index</h1>
-<ul>
+<h1 class="profiles">User Profiles</h1>
+<ul class="users-index">
   <li ng-repeat="user in usersIndex.users">
     <ul>
-      <li><a ui-sref="usersShow({ id: user.id })">{{ user.username }}</a></li>
+      <li class="userFonts"><a ui-sref="usersShow({ id: user.id })">{{ user.username }}</a></li>
     </ul>
   </li>
 </ul>

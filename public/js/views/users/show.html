@@ -1,6 +1,11 @@
-<!-- <h1>{{usersShow.user.username}}</h1>
-
-{{ usersShow.user.events }} -->
+<!-- <div class="container">
+<img ng-src="{{usersShow.user.image}}" width="400" alt="" class="profileImages">
+<p class="userInfo">
+  {{ usersShow.user.username }}<br>
+  Email: {{usersShow.user.email}}<br>
+  Rate: {{usersShow.user.rate}}
+</p>
+</div>
 <br>
 <button ui-sref="eventsNew({ id: usersShow.user.id })" class="btn btn-success">Book this Plumber</button>
 
@@ -13,4 +18,46 @@ day-view-start="06:00"
 day-view-end="22:59"
 day-view-split="30"
 cell-auto-open-disabled="true"
-</mwl-calendar>
+</mwl-calendar> -->
+
+<div class="container">
+
+   <div class="row">
+     <div class="col-md-6 left">
+       <img ng-src="{{ usersShow.user.image }}">
+     </div>
+     <div class="col-md-6">
+       <h2>Username: {{ usersShow.user.username }}</h2>
+       <h3>First Name: {{ usersShow.user.first_name }}</h3>
+       <!-- <h3>Last Name: {{ usersShow.user.last_name }}</h3> -->
+       <h3>Email: {{ usersShow.user.email }}</h3>
+       <!-- <h3>Role: {{ usersShow.user.role }}</h3> -->
+       <h3>Rate: £{{ usersShow.user.rate}}</h3>
+       <h3>Bio: {{ usersShow.user.bio}}</h3>
+
+       <hr>
+
+       <h3>Company Name: {{ usersShow.user.company_name }}</h3>
+       <h3>Borough: {{ usersShow.user.borough }}</h3>
+
+
+     </div>
+   </div>
+<button ui-sref="eventsNew({ id: usersShow.user.id })" class="btn btn-success">Book this Plumber</button>
+  <hr>
+
+  <h1>Schedule</h1>
+  <br>
+
+  <mwl-calendar
+  events="usersShow.events"
+  view="usersShow.calendarView"
+  view-title="usersShow.calendarTitle"
+  view-date="usersShow.viewDate"
+  day-view-start="06:00"
+  day-view-end="22:59"
+  day-view-split="30"
+  cell-auto-open-disabled="true"
+  </mwl-calendar>
+
+</div>

@@ -19,7 +19,7 @@ h1 {
 
 section {
   width: 100%;
-  height: 104vh;
+  height: 115vh;
 }
 
 .shader {
@@ -42,7 +42,14 @@ section {
   background-color: #34515e;
   color: #fff;
 }
-
+.plumberPage {
+  background-color: #34515e;
+  color: #fff;
+}
+.bookPage {
+  background-color: #34515e;
+  color: #fff;
+}
 .homepage {
   text-align: center;
 
@@ -119,6 +126,19 @@ button.btn.btn-primary {
   font-weight: 150;
   font-size: 20px;
 }
+button.btn.btn-success {
+  border-radius: 0px;
+  border: 0px;
+  margin-left: 24px;
+  padding: 13px;
+font-size: 22px;
+}
+button.btn.btn-success {
+  padding: 13px;
+font-size: 22px;
+margin-left: 0px;
+padding: 13px 27px;
+}
 .caption {
   font-size: 32px;
 }
@@ -146,9 +166,58 @@ button.btn.btn-primary {
 }
 .site-footer, .page-wrap:after {
   height: 142px;
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 .site-footer {
   background: #332a2a;
   color: white;
 }
+.events {
+  text-align: center;
+  // margin-top: 10px;
+}
+.users-index {
+  list-style: none;
+  // li {
+  //   list-style: none;
+  // }
+}
+.userFonts {
+  text-size: 20px;
+}
+.nav-text {
+  font-size: 20px;
+  font-weight: 200;
+  color: #fff;
+  text-transform: uppercase;
+}
+.navbar-brand {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.profiles {
+  text-align: center;
+  font-weight: 300;
+  margin-top: 15px;
+}
+.profileImages {
+  margin-top: 10px;
+}
+.container {
+  text-align: center;
+}
+
+.left {
+
+  img {
+    width: 300px;
+  }
+}
+#eventsButton {
+  margin: 0 auto;
+  text-align: center;
+}
+// .copy {
+//   text-align: center;
+//   margin-top: 15px;
+// }

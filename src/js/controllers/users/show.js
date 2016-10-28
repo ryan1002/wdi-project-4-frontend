@@ -14,11 +14,11 @@ function usersShowCtrl(User, $stateParams) {
     .$promise
     .then(data => {
       vm.user = data;
+      console.log(vm.user);
       vm.events = vm.user.events.map((booking) => {
         booking.startsAt = new Date(booking.startsAt).addDays(1);
         booking.endsAt = new Date(booking.endsAt).addDays(1);
-        return booking;
-      });
+        return booking;      });
     });
 
   Date.prototype.addDays = function(days) {
