@@ -58475,57 +58475,10 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";angular.module("PlumberApp").constant("API",'http://localhost:3000/api');
 "use strict";angular.module("PlumberApp").factory("AuthInterceptor",AuthInterceptor);AuthInterceptor.$inject=["API","TokenService"];function AuthInterceptor(API,TokenService){return{request:function request(config){var token=TokenService.getToken();if(config.url.indexOf(API)===0&&token){config.headers.Authorization="Bearer "+token;}return config;},response:function response(res){if(res.config.url.indexOf(API)===0&&res.data.token){TokenService.setToken(res.data.token);}return res;}};}
 "use strict";angular.module("PlumberApp").service("CurrentUserService",CurrentUserService);CurrentUserService.$inject=["TokenService","$rootScope","User"];function CurrentUserService(TokenService,$rootScope,User){var currentUser=TokenService.decodeToken();if(currentUser){currentUser=User.get(currentUser);}return{user:currentUser,saveUser:function saveUser(user){user.id=user.id?user.id:user._id;currentUser=user;$rootScope.$broadcast("loggedIn");},getUser:function getUser(user){return currentUser;},clearUser:function clearUser(){currentUser=null;TokenService.clearToken();$rootScope.$broadcast("loggedOut");}};}
-// angular.module('PlumberAppapp', ['ui.bootstrap'])
-//   .controller("CarouselDemoCtrl", CarouselDemoCtrl);
-// function CarouselDemoCtrl() {
-//   var vm = this;
-//   vm.myInterval = 3000;
-//   vm.slides = [
-//     {
-//       image: 'http://lorempixel.com/400/200/'
-//     },
-//     {
-//       image: 'http://lorempixel.com/400/200/food'
-//     },
-//     {
-//       image: 'http://lorempixel.com/400/200/sports'
-//     },
-//     {
-//       image: 'http://lorempixel.com/400/200/people'
-//     }
-//   ];
-// }
-"use strict";
 "use strict";angular.module("PlumberApp").controller("usersIndexCtrl",usersIndexCtrl);usersIndexCtrl.$inject=['User'];function usersIndexCtrl(User){var vm=this;vm.users=User.query();}
 "use strict";angular.module("PlumberApp").config(setUpInterceptor);setUpInterceptor.$inject=["$httpProvider"];function setUpInterceptor($httpProvider){return $httpProvider.interceptors.push("AuthInterceptor");}
 "use strict";angular.module("PlumberApp").controller("loginCtrl",loginCtrl);loginCtrl.$inject=["User","CurrentUserService"];function loginCtrl(User,CurrentUserService){var vm=this;vm.login=function(){User.login(vm.user).$promise.then(function(data){var user=data.user||null;if(user){CurrentUserService.saveUser(user);}});};}
-"use strict";angular.module("PlumberApp").controller("MainController",MainController);MainController.$inject=['$http','CurrentUserService','$rootScope','$state'];function MainController($http,CurrentUserService,$rootScope,$state){var vm=this;vm.user=CurrentUserService.getUser();$rootScope.$on("loggedIn",function(){vm.user=CurrentUserService.getUser();$state.go("usersIndex");});vm.logout=function(){event.preventDefault();CurrentUserService.clearUser();};$rootScope.$on("loggedOut",function(){vm.user=null;$state.go("home");});// const vm = this;
-// vm.calendarView = 'month';
-// vm.viewDate = new Date();
-//
-// $http
-//   .get('http://localhost:3000/api/users/1')
-//   .then(response => {
-//     vm.events = response.data.events.map((event) => {
-//       event.startsAt = new Date(event.startsAt);
-//       event.endsAt = new Date(event.endsAt);
-//       return event;
-//     });
-//   });
-//
-//
-//
-// vm.events = [
-//   {
-//     title: 'First Event',
-//     startsAt: new Date(2016,9,24,8,30)
-//   },
-//   {
-//     title: 'First Event',
-//     startsAt: new Date(2016,9,24,13,30),
-//   }
-// ];
-}
+"use strict";angular.module("PlumberApp").controller("MainController",MainController);MainController.$inject=['$http','CurrentUserService','$rootScope','$state'];function MainController($http,CurrentUserService,$rootScope,$state){var vm=this;vm.user=CurrentUserService.getUser();$rootScope.$on("loggedIn",function(){vm.user=CurrentUserService.getUser();$state.go("usersIndex");});vm.logout=function(){event.preventDefault();CurrentUserService.clearUser();};$rootScope.$on("loggedOut",function(){vm.user=null;$state.go("home");});}
 "use strict";angular.module("PlumberApp").controller("eventsNewCtrl",eventsNewCtrl);eventsNewCtrl.$inject=['$http','$stateParams','$state','API','CurrentUserService'];function eventsNewCtrl($http,$stateParams,$state,API,CurrentUserService){var vm=this;vm.submit=function(){$http.post(API+"/users/"+$stateParams.id+"/events",vm.event).then(function(data){console.log(data);$state.go("usersShow",$stateParams);});};}
 "use strict";angular.module("PlumberApp").controller("registerCtrl",registerCtrl);registerCtrl.$inject=["User","CurrentUserService"];function registerCtrl(User,CurrentUserService){var vm=this;vm.register=function(){User.register(vm.user).$promise.then(function(data){var user=data.user?data.user:null;if(user){CurrentUserService.saveUser(user);}});};}
 "use strict";angular.module("PlumberApp").config(Router);Router.$inject=["$stateProvider","$urlRouterProvider","$locationProvider"];function Router($stateProvider,$urlRouterProvider,$locationProvider){$locationProvider.html5Mode(true);$stateProvider.state("home",{url:"/",templateUrl:"/js/views/home.html"}).state("register",{url:"/register",templateUrl:"/js/views/register.html",controller:"registerCtrl as register"}).state("login",{url:"/login",templateUrl:"/js/views/login.html",controller:"loginCtrl as login"}).state("usersIndex",{url:"/users",templateUrl:"/js/views/users/index.html",controller:"usersIndexCtrl as usersIndex"}).state("usersShow",{url:"/users/:id",templateUrl:"/js/views/users/show.html",controller:"usersShowCtrl as usersShow"}).state("eventsNew",{url:"/users/:id/events/new",templateUrl:"/js/views/events/new.html",controller:"eventsNewCtrl as eventsNew"});$urlRouterProvider.otherwise("/");}

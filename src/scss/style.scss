@@ -3,25 +3,20 @@
 * {
   font-family: 'Open Sans Condensed', sans-serif;
 }
-
 body {
   margin: 0 auto;
 }
-
 h1 {
   margin: 0;
   padding: 0;
 }
-
 .navbar {
   margin-bottom: 0px;
 }
-
 section {
   width: 100%;
   height: 115vh;
 }
-
 .shader {
   width: 100%;
   height: 400px;
@@ -29,7 +24,6 @@ section {
   z-index: 1;
   background: rgba(0, 0, 0, 0.6);
 }
-
 .centered {
   position: absolute;
   left: 50%;
@@ -37,7 +31,6 @@ section {
   transform: translate(-50%,-50%);
   z-index: 2;
 }
-
 .register, .login {
   background-color: #34515e;
   color: #fff;
@@ -61,44 +54,35 @@ section {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
     height: 400px;
-
     h1 {
       font-size: 150px;
       font-weight: 700;
       text-transform: uppercase;
     }
-
     h4 {
       font-size: 40px;
     }
   }
-
   .info {
     margin-top: 25px;
   }
 }
-
 form {
   margin: 0px auto;
   width: 600px !important;
-
   h1 {
     font-weight: 700;
     font-size: 45px;
   }
-
   label {
     text-transform: uppercase;
     font-weight: 300;
     font-size: 18px;
   }
-
   input {
     margin-bottom: 5px;
     border-radius: 0px !important;
-
     .form-control {
       display: block;
       width: 100%;
@@ -145,16 +129,6 @@ padding: 13px 27px;
 .paragraph {
   font-size: 18px;
 }
-#content {
-  // background-color: #fbfaf8;
-}
-// footer {
-//   width: 100%;
-//   display: block;
-//   // z-index: 3;
-//   border: 1px solid green;
-//   height: 30px;
-// }
 #wrench-icon {
   background: url("../images/wrench.png") no-repeat;
 }
@@ -166,7 +140,6 @@ padding: 13px 27px;
 }
 .site-footer, .page-wrap:after {
   height: 142px;
-  // border: 1px solid green;
 }
 .site-footer {
   background: #332a2a;
@@ -174,16 +147,16 @@ padding: 13px 27px;
 }
 .events {
   text-align: center;
-  // margin-top: 10px;
 }
 .users-index {
   list-style: none;
-  // li {
-  //   list-style: none;
-  // }
+  li {
+    list-style: none;
+  }
 }
 .userFonts {
-  text-size: 20px;
+  font-size: 20px;
+  color: #fff;
 }
 .nav-text {
   font-size: 20px;
@@ -195,10 +168,11 @@ padding: 13px 27px;
   text-transform: uppercase;
   font-size: 20px;
 }
-.profiles {
-  text-align: center;
-  font-weight: 300;
-  margin-top: 15px;
+#profiles {
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
 }
 .profileImages {
   margin-top: 10px;
@@ -206,7 +180,6 @@ padding: 13px 27px;
 .container {
   text-align: center;
 }
-
 .left {
 
   img {
@@ -217,7 +190,13 @@ padding: 13px 27px;
   margin: 0 auto;
   text-align: center;
 }
-// .copy {
-//   text-align: center;
-//   margin-top: 15px;
-// }
+#header {
+  text-align: center;
+  padding: 15px;
+}
+.userFonts, a {
+    color: #d7d7d7;
+    &:hover {
+      color: white;
+    }
+}
